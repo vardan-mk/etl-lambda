@@ -1,0 +1,30 @@
+cloud:
+  aws:
+    credentials:
+      access-key: ${ACCESS_KEY}
+      secret-key: ${SECRET_KEY}
+    region:
+      static: eu-central-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: ${BUCKET_NAME}
+
+server:
+  port: 8085
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notesapp
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  cloud:
+    function:
+      scan:
+        packages: am.vardanmk.etllambda
+#  main:
+#    allow-bean-definition-overriding: true
